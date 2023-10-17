@@ -1,0 +1,30 @@
+
+body{
+    background-color: black;
+
+}
+h1{
+    text-align: center;
+    font-style: Georgia;
+    color: #FFA07A;
+    /* we can add the size of the font well decide on the go */
+
+}
+
+
+
+
+.button-center{
+    text-align: center;
+}
+
+.button{
+    background-color: black;
+    border-radius: 25%;
+    border-color: white;
+    color: #FFA07A;
+    padding: 20px;
+    text-align: center;
+    font-size: 16px;
+}
+
