@@ -29,14 +29,15 @@
         $password = mysqli_real_escape_string($db,$password);
         $campusID = mysqli_real_escape_string($db, $campusID);
 
+        //print statements
+        echo "First Name: $firstName <br>";
+        echo "Last Name: $lastName <br>";
+        echo "Email: $email <br>";
+        echo "Password: $password <br>";
+        echo "Campus ID: $campusID <br>";
 
-        echo $firstName;
-        echo $lastName;
-        echo $email;
-        echo $password;
-        echo $campusID;
         //sql query
-        $constructed_query = "INSERT INTO newUser(firstName, lastName, email, passwords; campusID) VALUES('$firstName', '$lastName','$email','$password', '$campusID')";
+        $constructed_query = "INSERT INTO newUser(firstName, lastName, email, password; campusID) VALUES('$firstName', '$lastName','$email','$password', '$campusID')";
 
         //execute SQL squery
         $result = mysqli_query($db, $constructed_query);
