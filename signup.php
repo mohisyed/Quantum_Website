@@ -39,7 +39,7 @@
         echo "Campus ID: $campusID <br>";
 
         //sql query
-        $constructed_query = "INSERT INTO newUser(firstName, lastName,  email, campusID, username, password) VALUES('$firstName', '$lastName','$email','campusID','username','$password')";
+        $constructed_query = "INSERT INTO newUser(firstName, lastName,  email, campusID, username, password) VALUES('$firstName', '$lastName','$email','$campusID','$username','$password')";
 
         //execute SQL squery
         mysqli_query($db, $constructed_query);
