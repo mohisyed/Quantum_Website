@@ -64,16 +64,15 @@
             die("Error: " .mysqli_error($db));
           }
           else {
-            echo "New User Created";
+            echo "<p> New User Created </p>";
           }
 
           ?>
         <br>
           <br>
           <div class = "button-center">
-          <a href='jointeam.html'>
-              Join Team
-          </a>
+          <form action="jointeam.php" method="post">
+                <input type="submit" value="Join Team">
           </div>
           <?php
           }else{
