@@ -31,15 +31,21 @@
         $username = mysqli_real_escape_string($db, $username);
         $password = mysqli_real_escape_string($db,$password);
 
-
         //print statements
         echo "First Name: $firstName <br>";
         echo "Last Name: $lastName <br>";
         echo "Email: $email <br>";
         echo "Campus ID: $campusID <br>";
+        //check if campus id is valid
+        if (preg_match("/[A-Za-z]{2}+\d{8}+/x", $campusID)) {
+            echo "Campus ID was in correct format <br />";
+        } else {
+            echo "Campus ID was incorrect <br />";
+            echo '<a href="signup.html"> Go back and re-enter Campus ID. </a> <br />';
+        }
 
         //sql query
-        $constructed_query = "INSERT INTO newUser(firstName, lastName,  email, campusID, username, password) VALUES('$firstName', '$lastName','$email','$campusID','$username','$password')";
+        $constructed_query = "INSERT INTO newUser(firstName, lastName,  email, campusID, username, password) VALUES('$firstName', '$lastName','$email','campusID','username','$password')";
 
         //execute SQL squery
         mysqli_query($db, $constructed_query);
