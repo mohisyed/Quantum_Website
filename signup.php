@@ -38,34 +38,49 @@
         echo "Campus ID: $campusID <br>";*/
 
         //check if campus id is valid
-        if (preg_match("/[A-Za-z]{2}+\d{8}+/x", $campusID)) {
-            echo "Campus ID was in correct format <br />";
-        
+        if (preg_match("/[A-Za-z]{2}+\d{5}+/x", $campusID)) {
+            echo "<p> Campus ID was in correct format </p> <br />";
 
-        //sql query
-        $constructed_query = "INSERT INTO newUser(firstName, lastName,  email, campusID, username, password) VALUES('$firstName', '$lastName','$email','$campusID','$username','$password')";
 
-        //execute SQL squery
-        mysqli_query($db, $constructed_query);
+          $z = 0;
+          //check is username exists
+          $username_query = "SELECT username from newUser";
 
-        if(mysqli_error($db)) {
-          die("Error: " .mysqli_error($db));
-        }
-        else {
-          echo "New User Created";
-        }
+          //execute SQL query
+          $results = mysqli_query($db, $username_query);
 
-        ?>
-       <br>
+          while($row = mysqli_fetch_assoc($results)){
+            if($username === $row['username']){
+              $z = 1;
+            }
+            
+          }
+
+          if($z == 0){
+          //sql query
+          $constructed_query = "INSERT INTO newUser(firstName, lastName,  email, campusID, username, password) VALUES('$firstName', '$lastName','$email','$campusID','$username','$password')";
+  
+          if(mysqli_error($db)) {
+            die("Error: " .mysqli_error($db));
+          }
+          else {
+            echo "New User Created";
+          }
+
+          ?>
         <br>
-        <div class = "button-center">
-        <a href='jointeam.html'>
-            Join Team
-        </a>
-        </div>
-        <?php
-
-        } else {
+          <br>
+          <div class = "button-center">
+          <a href='jointeam.html'>
+              Join Team
+          </a>
+          </div>
+          <?php
+          }else{
+            echo nl2br("<p> Invalid Username </p> \n \n");
+            echo '<a href="signup.html"> Go back and re-enter username. </a> <br />';
+        }  
+        }else{
             echo nl2br("<p> Invalid Campus ID </p> \n \n");
             echo '<a href="signup.html"> Go back and re-enter Campus ID. </a> <br />';
         }
