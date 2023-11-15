@@ -5,7 +5,7 @@
 <?php
     $db = mysqli_connect("studentdb-maria.gl.umbc.edu", "dabimbo1", "dabimbo1", "dabimbo1");
 
-    $sql = "SELECT dates, HOME, AWAY FROM Games";
+    $sql = "SELECT Dates, HOME, AWAY FROM Games";
     $result = $conn->query($sql);
 
 
@@ -31,7 +31,7 @@
     // Loop through the results and populate the table
     while ($row = $result->fetch_assoc()) {
         echo "<tr>";
-        echo "<td>" . $row['Date'] . "</td>";
+        echo "<td>" . $row['Dates'] . "</td>";
         echo "<td>" . $row['HOME'] . "</td>";
         echo "<td>" . $row['AWAY'] . "</td>";
         echo "</tr>";
