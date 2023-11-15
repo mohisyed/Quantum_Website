@@ -5,7 +5,7 @@
 <?php
     $db = mysqli_connect("studentdb-maria.gl.umbc.edu", "dabimbo1", "dabimbo1", "dabimbo1");
 
-    $sql = "SELECT dates, HOME, AWAY FROM schedule";
+    $sql = "SELECT dates, HOME, AWAY FROM Games";
     $result = $conn->query($sql);
 
 
